@@ -1,5 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### CMake template
+example_data
+bin
+build
+lib
+.vscode
 CMakeCache.txt
 CMakeFiles
 CMakeScripts

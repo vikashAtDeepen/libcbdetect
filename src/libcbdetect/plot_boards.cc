@@ -106,8 +106,10 @@ void plot_boards(const cv::Mat& img, const Corner& corners,
     cv::putText(img_show, std::to_string(n), mean,
                 cv::FONT_HERSHEY_SIMPLEX, 1.3, cv::Scalar(196, 196, 0), 2);
   }
-
-  cv::imshow("boards_img", img_show);
+  cv::Mat img_show_small;
+  cv::resize(img_show, img_show_small, cv::Size(2000, 1000), cv::INTER_LINEAR);
+  cv::imshow("boards_img", img_show_small);
+  // cv::resizeWindow("boards_img", 500, 500);
   cv::waitKey();
 }
 
