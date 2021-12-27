@@ -1,0 +1,18 @@
+FROM veerabadralokesh/ubuntu2004-googlecloud-python3-opencv:2
+
+# install dependencies
+ARG OPENCV_VERSION="3.0.0"
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update
+RUN apt install -y libopencv-dev python3-opencv
+RUN apt-get install -y libopencv-core-dev libopencv-highgui-dev libopencv-imgcodecs-dev libopencv-imgproc-dev libjsoncpp-dev
+
+RUN mkdir /source
+
+WORKDIR /source
+COPY . /source/
+RUN rm -rf build && rm -rf bin && rm -rf lib && mkdir build
+WORKDIR /source/build
+RUN cmake -DCMAKE_C_COMPILER="gcc" -DCMAKE_CXX_COMPILER="g++" ../ && make
+CMD ["bash"]
