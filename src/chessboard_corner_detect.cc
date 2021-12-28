@@ -39,14 +39,14 @@ ImageCornerDetectionResult detect(const char* str, cbdetect::CornerType corner_t
   // auto t1 = high_resolution_clock::now();
   cbdetect::find_corners(img, corners, params);
   // auto t2 = high_resolution_clock::now();
-  cbdetect::plot_corners(img, corners);
+  // cbdetect::plot_corners(img, corners);
   // auto t3 = high_resolution_clock::now();
   cbdetect::boards_from_corners(img, corners, boards, params);
   // auto t4 = high_resolution_clock::now();
   // printf("Find corners took: %.3f ms\n", duration_cast<microseconds>(t2 - t1).count() / 1000.0);
   // printf("Find boards took: %.3f ms\n", duration_cast<microseconds>(t4 - t3).count() / 1000.0);
   // printf("Total took: %.3f ms\n", duration_cast<microseconds>(t2 - t1).count() / 1000.0 + duration_cast<microseconds>(t4 - t3).count() / 1000.0);
-  cbdetect::plot_boards(img, corners, boards, params);
+  // cbdetect::plot_boards(img, corners, boards, params);
   // save_board_as_json(boards, corners, outputFilePath);
   return { str, corners, boards };
 }
